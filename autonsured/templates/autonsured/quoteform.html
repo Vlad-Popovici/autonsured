@@ -1,0 +1,7 @@
+<h1> This is the GetQuoteForm page</h1>
+
+<form action='/getquote' method="POST">
+	{% csrf_token %}
+	{{ gform }}
+	<input type="Submit" value="Submit">
+</form>
