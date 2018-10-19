@@ -61,7 +61,7 @@ class GetQuote(models.Model):
 	
 	
 	def __str__(self):
-		return self.last_name
+		return self.contact_last_name
 
 class GetQuoteForm(ModelForm):
 	class Meta:
