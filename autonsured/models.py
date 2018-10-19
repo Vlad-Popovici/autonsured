@@ -26,7 +26,7 @@ class GetQuote(models.Model):
 	contact_city           = models.CharField(max_length=100,choices=choices.CITY_CHOICES)
 	contact_state          = models.CharField(max_length=100)
 	contact_date_of_birth  = models.DateField(default='1900-10-10')
-	contact_phone		   = models.IntegerField(default='1213131',max_length=15)
+	contact_phone		   = models.IntegerField(default='1213131')
 	
     #Step 2 - Vehicle:
 	year           = models.CharField(default='1922',max_length=4,choices=choices.YEAR_CHOICES)
