@@ -26,8 +26,9 @@ class GetQuote(models.Model):
 	contact_city           = models.CharField(max_length=100,choices=choices.CITY_CHOICES)
 	contact_state          = models.CharField(max_length=100)
 	contact_date_of_birth  = models.DateField(default='1900-10-10')
-
-	#Step 2 - Vehicle:
+	contact_phone		   = models.IntegerField(default='1213131',max_length=15)
+	
+    #Step 2 - Vehicle:
 	year           = models.CharField(default='1922',max_length=4,choices=choices.YEAR_CHOICES)
 	make           = models.CharField(default='BMW',max_length=100,choices=choices.MAKE_CHOICES)
 	car_model      = models.CharField(default='X3',max_length=100,choices=choices.MODEL_CHOICES)
@@ -44,7 +45,8 @@ class GetQuote(models.Model):
 	driver1_city           = models.CharField(default='New York',max_length=100,choices=choices.CITY_CHOICES)
 	driver1_state          = models.CharField(default='1922',max_length=100)
 	driver1_date_of_birth  = models.DateField(default='1901-10-10')
-
+    
+    
 	#Option to add additional drivers
 	driver2_first_name     = models.CharField(default='1922',blank=True,help_text="This is the help text!",max_length=100)
 	driver2_middle_name    = models.CharField(default='1922',blank=True,max_length=100)
@@ -69,7 +71,7 @@ class GetQuoteForm(ModelForm):
 		fields = [
 		#Step 1:
 		'contact_first_name', 'contact_middle_name', 'contact_last_name', 'contact_street_address', 'contact_city', 
-		'contact_state', 
+		'contact_state', 'contact_phone',
 		#Step 2:
 		'year','make','car_model','body_style','vin','driver_confirmation',
 
