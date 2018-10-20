@@ -89,7 +89,7 @@ class GetQuoteForm(ModelForm):
 		
 		#Step 2 - Vehicle:
 		'year','make','car_model','body_style','vin','driver_confirmation','driver_license_age','driver_license_number',
-		'finance','primary_use','insurance_coverage',
+		'finance','primary_use','insurance_coverage','mileage',
 
 		#Step 3 - Additional drivers:
 		'driver1_first_name','driver1_middle_name','driver1_last_name','driver1_street_address','driver1_city',
