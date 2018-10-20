@@ -57,6 +57,6 @@ def get_quote(request):
 		return HttpResponseRedirect('/thank-you')
 
 	else:
-		gform = GetQuoteForm().as_ul()
+		gform = GetQuoteForm()
 		return render(request, 'autonsured/quoteform.html', {'gform':gform})
 
