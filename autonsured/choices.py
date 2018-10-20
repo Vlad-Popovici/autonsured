@@ -34,3 +34,10 @@ PRIMARY_USE = (
 	('Farm','Used primarly on a Farm or Ranch'),
 	('Federal Gov Employee','Federal Gov Employee'),
 	)
+
+COVERAGE_CHOICES = (
+	('$5,000','$5,000'),
+	('$10,000','$10,000'),
+	('$15,000','$15,000'),
+	('$20,000','$20,000'),
+	)

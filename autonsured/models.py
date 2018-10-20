@@ -29,14 +29,16 @@ class GetQuote(models.Model):
 	contact_phone		   = models.IntegerField()
 	
     #Step 2 - Vehicle:
-	year           = models.CharField(default='1922',max_length=4,choices=choices.YEAR_CHOICES)
-	make           = models.CharField(default='BMW',max_length=100,choices=choices.MAKE_CHOICES)
-	car_model      = models.CharField(default='X3',max_length=100,choices=choices.MODEL_CHOICES)
-	body_style     = models.CharField(default='style1',max_length=100,choices=choices.BODYSTYLE_CHOICES)
-	vin            = models.CharField(default='IASJI21ej22',max_length=100) #vehicle identification number 
-	finance        = models.CharField(default='Own', max_length=50, choices=choices.OWNER_CHOICES)
-	primary_use    = models.CharField(default='Personal', max_length=50, choices=choices.PRIMARY_USE)
-	mileage		   = models.IntegerField() #How many miles are you planning to put on this vehicle in the next 12 months?
+	year               = models.CharField(default='1922',max_length=4,choices=choices.YEAR_CHOICES)
+	make               = models.CharField(default='BMW',max_length=100,choices=choices.MAKE_CHOICES)
+	car_model          = models.CharField(default='X3',max_length=100,choices=choices.MODEL_CHOICES)
+	body_style         = models.CharField(default='style1',max_length=100,choices=choices.BODYSTYLE_CHOICES)
+	vin                = models.CharField(default='IASJI21ej22',max_length=100) #vehicle identification number 
+	finance            = models.CharField(default='Own', max_length=50, choices=choices.OWNER_CHOICES)
+	primary_use        = models.CharField(default='Personal', max_length=50, choices=choices.PRIMARY_USE)
+	mileage		       = models.IntegerField() #How many miles are you planning to put on this vehicle in the next 12 months?
+	insurance_coverage = models.CharField(default='$5000', max_length=50, choices=choices.COVERAGE_CHOICES)
+
 	
 	#Step 3 - Drivers:
 	#Are you the driver of this car  ? -Yes (if yes, auto-populate fields below with existing data) - No empty fields
@@ -80,12 +82,14 @@ class GetQuoteForm(ModelForm):
 	class Meta:
 		model  = GetQuote
 		fields = [
-		#Step 1:
+		
+		#Step 1 Contact info:
 		'contact_first_name', 'contact_middle_name', 'contact_last_name', 'contact_street_address', 'contact_city', 
 		'contact_state', 'contact_phone','social_security_no','gender','marital_status',
-		#Step 2:
+		
+		#Step 2 - Vehicle:
 		'year','make','car_model','body_style','vin','driver_confirmation','driver_license_age','driver_license_number',
-		'finance','primary_use',
+		'finance','primary_use','insurance_coverage',
 
 		#Step 3 - Additional drivers:
 		'driver1_first_name','driver1_middle_name','driver1_last_name','driver1_street_address','driver1_city',
@@ -93,4 +97,10 @@ class GetQuoteForm(ModelForm):
 
 		'driver2_first_name','driver2_middle_name','driver2_last_name','driver2_street_address','driver2_city',
 		'driver2_state','driver2_date_of_birth','driver2_military',
+
+		#Step 4 - Driving History:
+		'driver_license_age','driver_license_number',
+
+		#Step 5 - Additional info:
+		'social_security_no','gender','marital_status',
 		]
