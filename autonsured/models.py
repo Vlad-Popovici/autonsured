@@ -26,7 +26,7 @@ class GetQuote(models.Model):
 	contact_city           = models.CharField(max_length=100,choices=choices.CITY_CHOICES)
 	contact_state          = models.CharField(max_length=100)
 	contact_date_of_birth  = models.DateField(default='1900-10-10')
-	contact_phone		   = models.IntegerField(default='1213131')
+	contact_phone		   = models.IntegerField()
 	
     #Step 2 - Vehicle:
 	year           = models.CharField(default='1922',max_length=4,choices=choices.YEAR_CHOICES)
@@ -60,8 +60,10 @@ class GetQuote(models.Model):
 	# #Step 4 - Driving History:
 
 	# #Step 5 - Additional info:
-	
-	
+	social_security_no    = models.IntegerField()
+	gender                = models.CharField(max_length=100,default='Male',choices=[('Male','Male'),('Female','Female')])
+	marital_status        = models.CharField(max_length=100,default='Married',choices=[('Married','Married'),('Single','Single')])
+
 	def __str__(self):
 		return self.contact_last_name
 
@@ -71,7 +73,7 @@ class GetQuoteForm(ModelForm):
 		fields = [
 		#Step 1:
 		'contact_first_name', 'contact_middle_name', 'contact_last_name', 'contact_street_address', 'contact_city', 
-		'contact_state', 'contact_phone',
+		'contact_state', 'contact_phone','social_security_no','gender','marital_status',
 		#Step 2:
 		'year','make','car_model','body_style','vin','driver_confirmation',
 
