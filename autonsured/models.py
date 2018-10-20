@@ -34,6 +34,9 @@ class GetQuote(models.Model):
 	car_model      = models.CharField(default='X3',max_length=100,choices=choices.MODEL_CHOICES)
 	body_style     = models.CharField(default='style1',max_length=100,choices=choices.BODYSTYLE_CHOICES)
 	vin            = models.CharField(default='IASJI21ej22',max_length=100) #vehicle identification number 
+	finance        = models.CharField(default='Own', max_length=50, choices=choices.OWNER_CHOICES)
+	primary_use    = models.CharField(default='Personal', max_length=50, choices=choices.PRIMARY_USE)
+	mileage		   = models.IntegerField() #How many miles are you planning to put on this vehicle in the next 12 months?
 	
 	#Step 3 - Drivers:
 	#Are you the driver of this car  ? -Yes (if yes, auto-populate fields below with existing data) - No empty fields
@@ -82,6 +85,7 @@ class GetQuoteForm(ModelForm):
 		'contact_state', 'contact_phone','social_security_no','gender','marital_status',
 		#Step 2:
 		'year','make','car_model','body_style','vin','driver_confirmation','driver_license_age','driver_license_number',
+		'finance','primary_use',
 
 		#Step 3 - Additional drivers:
 		'driver1_first_name','driver1_middle_name','driver1_last_name','driver1_street_address','driver1_city',
