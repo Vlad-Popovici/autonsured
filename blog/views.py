@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import BlogPost
+
 
 # Create your views here.
 
@@ -8,10 +9,8 @@ def blog_home(request):
 	all_posts = BlogPost.objects.all()
 	return render(request, 'blog/bloghome.html', {'all_posts':all_posts})
 
-def blog_detail(request):
+def blog_detail(request, slug):
 	'''detailed view - full article'''
-	pass
+	blog_detail = get_object_or_404(BlogPost, slug=slug)
+	return render(request, 'blog/blogdetail.html', {'blog_detail':blog_detail})
 
-def blog_list(request):
-	'''list all blog posts published'''
-	pass

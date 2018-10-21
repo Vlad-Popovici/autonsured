@@ -8,5 +8,5 @@ class BlogPost(models.Model):
 	image     = models.ImageField(null=True,blank=True)
 	#Need to add a date field thats automatically added as date.now() when publishing
 
-	def __str__(sefl):
+	def __str__(self):
 		return self.title
