@@ -10,8 +10,8 @@ class Comment(models.Model):
     def __str__(self):
         return "Comment from: " + self.name
     
-    class Meta():
-        ordering = ['title','name']
+    class Meta:
+        ordering = ('name',)
         
         
 
